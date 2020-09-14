@@ -6,6 +6,7 @@ authors = ["Henrique Luiz Hartmann"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
+django = "^3.1.1"
 
 [tool.poetry.dev-dependencies]
 
