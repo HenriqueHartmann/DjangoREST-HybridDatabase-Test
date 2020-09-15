@@ -1,0 +1,31 @@
+---
+version: "3.7"
+
+services:
+  postgres:
+    image: postgres:12
+    container_name: submission-test-postgresql
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: submission-test-postgresql
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    ports:
+      - "8254:5432"
+
+  mongo:
+    image: "mongo"
+    container_name: submission-test-mongo
+    environment:
+      MONGO_INITDB_DATABASE: submission-test-mongo
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./data/mongo:/data/db
+
+volumes:
+  db:
