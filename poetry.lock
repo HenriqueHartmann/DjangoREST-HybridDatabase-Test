@@ -39,6 +39,14 @@ Django = ">=2.2"
 
 [[package]]
 category = "main"
+description = "Django-environ allows you to utilize 12factor inspired environment variables to configure your Django application."
+name = "django-environ"
+optional = false
+python-versions = "*"
+version = "0.4.5"
+
+[[package]]
+category = "main"
 description = "MongoEngine support for Django Rest Framework."
 name = "django-rest-framework-mongoengine"
 optional = false
@@ -135,7 +143,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 version = "0.3.1"
 
 [metadata]
-content-hash = "08d34a62f1d372231b700fa7e1dc07067e483b598071dc4d987b95907eb3f6df"
+content-hash = "bd8b4a62898d194191140206d3f336fdf735fdae8a53a179354aa84991a2d765"
 python-versions = ">=3.6,<3.9"
 
 [metadata.files]
@@ -150,6 +158,10 @@ django = [
 django-cors-headers = [
     {file = "django-cors-headers-3.5.0.tar.gz", hash = "sha256:db82b2840f667d47872ae3e4a4e0a0d72fbecb42779b8aa233fa8bb965f7836a"},
     {file = "django_cors_headers-3.5.0-py3-none-any.whl", hash = "sha256:9322255c296d5f75089571f29e520c83ff9693df17aa3cf9f6a4bea7c6740169"},
+]
+django-environ = [
+    {file = "django-environ-0.4.5.tar.gz", hash = "sha256:6c9d87660142608f63ec7d5ce5564c49b603ea8ff25da595fd6098f6dc82afde"},
+    {file = "django_environ-0.4.5-py2.py3-none-any.whl", hash = "sha256:c57b3c11ec1f319d9474e3e5a79134f40174b17c7cc024bbb2fad84646b120c4"},
 ]
 django-rest-framework-mongoengine = [
     {file = "django-rest-framework-mongoengine-3.4.1.tar.gz", hash = "sha256:cabb60f2b8ecf6ceaa13550b47dde0b8f2fe9b6f7b69be681e059cf31b51d729"},

@@ -12,6 +12,7 @@ djangorestframework-simplejwt = "^4.4.0"
 django-cors-headers = "^3.5.0"
 mongoengine = "^0.20.0"
 django-rest-framework-mongoengine = "^3.4.1"
+django-environ = "^0.4.5"
 
 [tool.poetry.dev-dependencies]
 
