@@ -5,8 +5,11 @@ description = "Um projeto simples para demonstrar um ambiente rest com banco de 
 authors = ["Henrique Luiz Hartmann"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = ">=3.6,<3.9"
 django = "^3.1.1"
+djangorestframework = "^3.11.1"
+djangorestframework-simplejwt = "^4.4.0"
+django-cors-headers = "^3.5.0"
 
 [tool.poetry.dev-dependencies]
 
