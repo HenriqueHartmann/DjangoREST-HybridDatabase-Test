@@ -3,6 +3,7 @@ import environ
 import mongoengine
 
 from pathlib import Path
+from datetime import timedelta
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -77,6 +78,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LOGIN_URL = "api/v1/signin"
 
+Simple_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60)
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=2)
+}
+
 CORS_ORIGIN_WHITELIST = ["http://localhost:3000", "http://127.0.0.1:3000"]
 
 LANGUAGE_CODE = 'en-us'
@@ -92,3 +98,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": ["rest_framework_simplejwt.authentication.JWTAuthentication"],
+    "DEFAULT_RENDERER_CLASSES": ["rest_framework.renderers.JSONRenderer"],
+    "TEST_REQUEST_DEFAULT_FORMAT": "json",
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissios.DjangoModelPermissions")
+}
