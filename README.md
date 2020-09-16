@@ -26,10 +26,6 @@ poetry install
 ./manage.py runserver
 ```
 
-Para instalar dependências para o backend você precisa estar dentro do virtualenv do backend:
-
-<blockquote>poetry shell</blockquote>
-
 <h2>TEARDOWN</h2>
 
 ```
