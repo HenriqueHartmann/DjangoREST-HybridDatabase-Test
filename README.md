@@ -26,13 +26,9 @@ poetry install
 ./manage.py runserver
 ```
 
-<b>Para fazer um commit, você deve estar dentro do virtualenv do backend</b>
-
-Use o poetry para isso:
+Para instalar dependências para o backend você precisa estar dentro do virtualenv do backend:
 
 <blockquote>poetry shell</blockquote>
-
-Configure os hooks de commit para executar verificaçãoes de código antes de fazer um commit:
 
 <h2>TEARDOWN</h2>
 
