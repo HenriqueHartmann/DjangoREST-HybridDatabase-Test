@@ -13,6 +13,7 @@ django-cors-headers = "^3.5.0"
 mongoengine = "^0.20.0"
 django-rest-framework-mongoengine = "^3.4.1"
 django-environ = "^0.4.5"
+psycopg2-binary = "^2.8.6"
 
 [tool.poetry.dev-dependencies]
 
