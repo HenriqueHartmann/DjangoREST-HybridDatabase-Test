@@ -1,8 +1,7 @@
 from mongoengine import Document, EmbeddedDocument, fields
 
 
-class Author(EmbeddedDocument):
-    id = fields.IntField()
+from backend.core.models import Author
 
 
 class Event(Document):
