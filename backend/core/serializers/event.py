@@ -1,11 +1,7 @@
 from rest_framework_mongoengine import serializers
 
 from backend.core.models import Event, Author
-
-
-class AuthorSerializer(serializers.EmbeddedDocumentSerializer):
-    ref_name = "AuthorEvent"
-    model = Author
+from backend.core.serializers import AuthorSerializer
 
 
 class EventSerializer(serializers.DocumentSerializer):
