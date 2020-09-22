@@ -1,4 +1,4 @@
-from rest_framework_mongoengine import EmbeddedDocument, fields
+from mongoengine import EmbeddedDocument, fields
 
 
 class Author(EmbeddedDocument):
