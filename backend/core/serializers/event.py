@@ -17,7 +17,7 @@ class EventSerializer(serializers.DocumentSerializer):
         event = Event.objects.create(**validated_data)
         event.authors = []
 
-        for author_data in auhtors_data:
+        for author_data in authors_data:
             event.authors.append(Author(**author_data))
 
         event.save()
