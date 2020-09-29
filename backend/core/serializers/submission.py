@@ -17,7 +17,7 @@ class SubmissionSerializer(serializers.DocumentSerializer):
         submission = Submission.objects.create(**validated_data)
         submission.authors = []
 
-        for author_data in auhtors_data:
+        for author_data in authors_data:
             submission.authors.append(Author(**author_data))
 
         submission.save()
