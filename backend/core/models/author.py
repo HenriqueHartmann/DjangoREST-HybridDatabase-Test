@@ -2,4 +2,4 @@ from mongoengine import EmbeddedDocument, fields
 
 
 class Author(EmbeddedDocument):
-    id = fields.IntField()
+    id_user = fields.IntField(required=True)
