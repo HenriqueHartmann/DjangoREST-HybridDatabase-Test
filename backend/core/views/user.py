@@ -21,16 +21,33 @@ class UserViewSet(viewsets.ModelViewSet):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    def list(self, request):
+        queryset = models.User.objects.all()
+        serializer = serializers.UserShowSerializer(queryset, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def retrieve(self, request, pk=None):
+        queryset = models.User.objects.all()
+        user = get_object_or_404(queryset, pk=pk)
+        serializer = serializers.UserShowSerializer(user)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    @action(methods=["GET"], detail=True, url_path="get-password")
+    def retrieve_password(self, request, pk=None):
+        queryset = models.User.objects.all()
+        user = get_object_or_404(queryset, pk=pk)
+        serializer = serializers.UserSerializer(user)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
     @action(methods=["GET"], detail=False, url_path="event")
     def list_users_events(self, request):
         users = models.User.objects.all()
         events = models.Event.objects.all()
-
-        list_temp = {}
         list_all = []
 
         if models.User.objects.count() > 0:
             for user in users:
+                list_temp = {}
                 list_temp["user"] = user
                 if models.Event.objects.count() > 0:
                     list_temp["events"] = []
@@ -41,7 +58,6 @@ class UserViewSet(viewsets.ModelViewSet):
                         if user.id in list_ids:
                             list_temp["events"].append(event)
                 list_all.append(list_temp)
-                list_temp = {}
             serializer = serializers.ListEventsSerializer(list_all, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response([], status=status.HTTP_200_OK)
@@ -51,7 +67,6 @@ class UserViewSet(viewsets.ModelViewSet):
         users = models.User.objects.all()
         user = get_object_or_404(users, pk=pk)
         events = models.Event.objects.all()
-
         list_user_events = {}
         list_user_events["user"] = user
 
