@@ -10,5 +10,6 @@ class Submission(Document):
     file = fields.FileField(required=True)
     starts_on = fields.StringField(max_length=19)
     ends_on = fields.StringField(max_length=19)
+    created_at = fields.StringField(max_length=19)
     event_ref = fields.StringField(required=True)
-    authors = fields.EmbeddedDocumentListField(Author, required=True)
+    authors = fields.EmbeddedDocumentListField(Author)
