@@ -1,12 +1,11 @@
 from rest_framework import serializers
 
-from backend.core.serializers import UserSerializer, EventSerializer
+from backend.core.serializers import EventSerializer
 
 
 class FieldProfileShowSerializer(serializers.Serializer):
     first_name = serializers.CharField(max_length=25)
     last_name = serializers.CharField(max_length=50)
-
 
 class UserShowSerializer(serializers.Serializer):
     id = serializers.IntegerField()
