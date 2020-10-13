@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from backend.core.serializers import EventSerializer
+from backend.core.serializers import EventSerializer, UserRecordSerializer
 
 
 class FieldProfileShowSerializer(serializers.Serializer):
@@ -12,6 +12,10 @@ class UserShowSerializer(serializers.Serializer):
     profile = FieldProfileShowSerializer()
     email = serializers.EmailField()
     created_at = serializers.CharField()
+
+class ListUserRecordsSerializer(serializers.Serializer):
+    user = UserShowSerializer()
+    record = UserRecordSerializer(required=False)
 
 class ListEventsSerializer(serializers.Serializer):
     user = UserShowSerializer()
