@@ -1,4 +1,4 @@
-from mongoengine import Document, EmbeddedDocument, fields
+from mongoengine import Document, fields
 
 
 from backend.core.models import Author
