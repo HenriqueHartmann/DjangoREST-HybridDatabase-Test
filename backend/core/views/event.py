@@ -35,9 +35,7 @@ class EventViewSet(viewsets.ModelViewSet):
                 if models.User.objects.count() > 0:
                     list_temp["users"] = []
                     for user in users:
-                        list_ids = []
-                        for author in event.authors:
-                            list_ids.append(int(author.id_user))
+                        list_ids = [int(a) for a in event.authors]
                         if user.id in list_ids:
                             list_temp["users"].append(user)
                 list_all.append(list_temp)
@@ -56,9 +54,7 @@ class EventViewSet(viewsets.ModelViewSet):
         if models.User.objects.count() > 0:
             list_event_users["users"] = []
             for user in users:
-                list_ids = []
-                for author in event.authors:
-                    list_ids.append(int(author.id_user))
+                list_ids = [int(a) for a in event.authors]
                 if user.id in list_ids:
                     list_event_users["users"].append(user)
         serializer = serializers.ListUsersSerializer(list_event_users)

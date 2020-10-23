@@ -8,5 +8,5 @@ class DataUserRecord(EmbeddedDocument):
 
 
 class UserRecord(Document):
-    user_id = fields.StringField(required=True)
+    id_user = fields.StringField(required=True)
     records = fields.EmbeddedDocumentListField(DataUserRecord)

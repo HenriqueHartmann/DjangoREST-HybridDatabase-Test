@@ -46,7 +46,7 @@ class UserViewSet(viewsets.ModelViewSet):
         data_record = {}
         data_record["records"] = []
         data_record["records"].append({})
-        data_record["user_id"] = pk
+        data_record["id_user"] = pk
         data_record["records"][0]["first_name"] = first_name
         data_record["records"][0]["last_name"] = last_name
         data_record["records"][0]["updated_at"] = date_now
@@ -56,7 +56,7 @@ class UserViewSet(viewsets.ModelViewSet):
         # UPDATE
         records = models.UserRecord.objects.all()
         for record in records:
-            if pk == record.user_id:
+            if pk == record.id_user:
                 serializerUser = serializers.UserSerializer(user, data=request.data)
                 serializerRecord = serializers.UserRecordSerializer(record, data=data_record)
                 if serializerUser.is_valid():
@@ -100,7 +100,7 @@ class UserViewSet(viewsets.ModelViewSet):
                 if models.UserRecord.objects.count() > 0:
                     records = models.UserRecord.objects.all()
                     for record in records:
-                        if int(record.user_id) == user.id:
+                        if int(record.id_user) == user.id:
                             list_temp["record"] = record
                 list_all.append(list_temp)
             serializer = serializers.ListUserRecordsSerializer(list_all, many=True)
@@ -117,7 +117,7 @@ class UserViewSet(viewsets.ModelViewSet):
         if models.UserRecord.objects.count() > 0:
             records = models.UserRecord.objects.all()
             for record in records:
-                if int(record.user_id) == user.id:
+                if int(record.id_user) == user.id:
                     list_records["record"] = record
         serializer = serializers.ListUserRecordsSerializer(list_records)
         return Response(serializer.data, status=status.HTTP_200_OK)
@@ -134,9 +134,7 @@ class UserViewSet(viewsets.ModelViewSet):
                     events = models.Event.objects.all()
                     list_temp["events"] = []
                     for event in events:
-                        list_ids = []
-                        for author in event.authors:
-                            list_ids.append(int(author.id_user))
+                        list_ids = [int(a) for a in event.authors]
                         if user.id in list_ids:
                             list_temp["events"].append(event)
                 list_all.append(list_temp)
@@ -155,9 +153,7 @@ class UserViewSet(viewsets.ModelViewSet):
             events = models.Event.objects.all()
             list_user_events["events"] = []
             for event in events:
-                list_ids = []
-                for author in event.authors:
-                    list_ids.append(int(author.id_user))
+                list_ids = [int(a) for a in event.authors]
                 if user.id in list_ids:
                     list_user_events["events"].append(event)
         serializer = serializers.ListEventsSerializer(list_user_events)

@@ -1,7 +1,5 @@
 from mongoengine import Document, fields
 
-from backend.core.models import Author
-
 
 class Event(Document):
     title = fields.StringField(max_length=50)
@@ -10,4 +8,4 @@ class Event(Document):
     starts_on = fields.StringField(max_length=19)
     ends_on = fields.StringField(max_length=19)
     created_at = fields.StringField(max_length=19)
-    authors = fields.EmbeddedDocumentListField(Author)
+    authors = fields.ListField(required=True)
