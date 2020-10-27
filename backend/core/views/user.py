@@ -158,3 +158,41 @@ class UserViewSet(viewsets.ModelViewSet):
                     list_user_events["events"].append(event)
         serializer = serializers.ListEventsSerializer(list_user_events)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+    @action(methods=["GET"], detail=False, url_path="submission")
+    def list_user_submission(self, request):
+        if models.User.objects.count() > 0:
+            list_all = []
+            users = models.User.objects.all()
+            for user in users:
+                list_temp = {}
+                list_temp["user"] = user
+                if models.Submission.objects.count() > 0:
+                    submissions = models.Submission.objects.all()
+                    list_temp["submissions"] = []
+                    for submission in submissions:
+                        print(submission.title)
+                        list_ids = [int(a) for a in submission.authors]
+                        if user.id in list_ids:
+                            list_temp["submissions"].append(submission)
+                list_all.append(list_temp)
+            serializer = serializers.ListSubmissionsSerializer(list_all, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response([], status=status.HTTP_200_OK)
+
+    @action(methods=["GET"], detail=True, url_path="submission")
+    def list_user_submissions(self, request, pk=None):
+        users = models.User.objects.all()
+        user = get_object_or_404(users, pk=pk)
+        list_user_submissions = {}
+        list_user_submissions["user"] = user
+
+        if models.Submission.objects.count() > 0:
+            submissions = models.Submission.objects.all()
+            list_user_submissions["submissions"] = []
+            for submission in submissions:
+                list_ids = [int(a) for a in submission.authors]
+                if user.id in list_ids:
+                    list_user_submissions["submissions"].append(submission)
+        serializer = serializers.ListSubmissionsSerializer(list_user_submissions)
+        return Response(serializer.data, status=status.HTTP_200_OK)

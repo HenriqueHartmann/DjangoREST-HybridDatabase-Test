@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from backend.core.serializers import EventSerializer, UserRecordSerializer
+from backend.core.serializers import EventSerializer, SubmissionSerializer, UserRecordSerializer
 
 
 class FieldProfileShowSerializer(serializers.Serializer):
@@ -21,6 +21,14 @@ class ListEventsSerializer(serializers.Serializer):
     user = UserShowSerializer()
     events = EventSerializer(required=False, many=True)
 
-class ListUsersSerializer(serializers.Serializer):
+class ListUsersEventSerializer(serializers.Serializer):
     event = EventSerializer()
+    users = UserShowSerializer(many=True)
+
+class ListSubmissionsSerializer(serializers.Serializer):
+    user = UserShowSerializer()
+    submissions = SubmissionSerializer(required=False, many=True)
+
+class ListUsersSubmissionsSerializer(serializers.Serializer):
+    submission = SubmissionSerializer()
     users = UserShowSerializer(many=True)
