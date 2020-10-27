@@ -57,30 +57,30 @@ class UserViewSet(viewsets.ModelViewSet):
         records = models.UserRecord.objects.all()
         for record in records:
             if pk == record.id_user:
-                serializerUser = serializers.UserSerializer(user, data=request.data)
-                serializerRecord = serializers.UserRecordSerializer(record, data=data_record)
-                if serializerUser.is_valid():
-                    if serializerRecord.is_valid():
-                        serializerUser.save()
-                        serializerRecord.save()
-                        data["user"] = serializerUser.data
-                        data["record"] = serializerRecord.data
+                serializer_user = serializers.UserSerializer(user, data=request.data)
+                serializer_record = serializers.UserRecordSerializer(record, data=data_record)
+                if serializer_user.is_valid():
+                    if serialize_record.is_valid():
+                        serializer_user.save()
+                        serializer_record.save()
+                        data["user"] = serializer_user.data
+                        data["record"] = serializer_record.data
                         return Response(data, status=status.HTTP_200_OK)
-                    return Response(serializerRecord.errors, status=status.HTTP_400_BAD_REQUEST)
-                return Response(serializerUser.errors, status=status.HTTP_400_BAD_REQUEST)
+                    return Response(serializer_record.errors, status=status.HTTP_400_BAD_REQUEST)
+                return Response(serializer_user.errors, status=status.HTTP_400_BAD_REQUEST)
 
         # CREATE
-        serializerUser = serializers.UserSerializer(user, data=request.data)
-        serializerRecord = serializers.UserRecordSerializer(data=data_record)
-        if serializerUser.is_valid():
-            if serializerRecord.is_valid():
-                serializerUser.save()
-                serializerRecord.save()
-                data["user"] = serializerUser.data
-                data["record"] = serializerRecord.data
+        serializer_user = serializers.UserSerializer(user, data=request.data)
+        serializer_record = serializers.UserRecordSerializer(data=data_record)
+        if serializer_user.is_valid():
+            if serializer_record.is_valid():
+                serializer_user.save()
+                serializer_record.save()
+                data["user"] = serializer_user.data
+                data["record"] = serializer_record.data
                 return Response(data, status=status.HTTP_201_CREATED)
-            return Response(serializerRecord.errors, status=status.HTTP_400_BAD_REQUEST)
-        return Response(serializerUser.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer_record.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer_user.errors, status=status.HTTP_400_BAD_REQUEST)
 
     @action(methods=["GET"], detail=True, url_path="get-password")
     def retrieve_password(self, request, pk=None):
@@ -171,7 +171,6 @@ class UserViewSet(viewsets.ModelViewSet):
                     submissions = models.Submission.objects.all()
                     list_temp["submissions"] = []
                     for submission in submissions:
-                        print(submission.title)
                         list_ids = [int(a) for a in submission.authors]
                         if user.id in list_ids:
                             list_temp["submissions"].append(submission)
