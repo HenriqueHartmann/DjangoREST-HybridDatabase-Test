@@ -1,33 +1,21 @@
 [[package]]
-category = "main"
-description = "ASGI specs, helper code, and adapters"
 name = "asgiref"
+version = "3.2.10"
+description = "ASGI specs, helper code, and adapters"
+category = "main"
 optional = false
 python-versions = ">=3.5"
-version = "3.2.10"
 
 [package.extras]
 tests = ["pytest", "pytest-asyncio"]
 
 [[package]]
-category = "dev"
-description = "A tool that automatically formats Python code to conform to the PEP 8 style guide"
-name = "autopep8"
-optional = false
-python-versions = "*"
-version = "1.5.4"
-
-[package.dependencies]
-pycodestyle = ">=2.6.0"
-toml = "*"
-
-[[package]]
-category = "main"
-description = "A high-level Python Web framework that encourages rapid development and clean, pragmatic design."
 name = "django"
+version = "3.1.1"
+description = "A high-level Python Web framework that encourages rapid development and clean, pragmatic design."
+category = "main"
 optional = false
 python-versions = ">=3.6"
-version = "3.1.1"
 
 [package.dependencies]
 asgiref = ">=3.2.10,<3.3.0"
@@ -39,50 +27,50 @@ argon2 = ["argon2-cffi (>=16.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
-category = "main"
-description = "django-cors-headers is a Django application for handling the server headers required for Cross-Origin Resource Sharing (CORS)."
 name = "django-cors-headers"
+version = "3.5.0"
+description = "django-cors-headers is a Django application for handling the server headers required for Cross-Origin Resource Sharing (CORS)."
+category = "main"
 optional = false
 python-versions = ">=3.5"
-version = "3.5.0"
 
 [package.dependencies]
 Django = ">=2.2"
 
 [[package]]
-category = "main"
-description = "Django-environ allows you to utilize 12factor inspired environment variables to configure your Django application."
 name = "django-environ"
-optional = false
-python-versions = "*"
 version = "0.4.5"
-
-[[package]]
+description = "Django-environ allows you to utilize 12factor inspired environment variables to configure your Django application."
 category = "main"
-description = "MongoEngine support for Django Rest Framework."
-name = "django-rest-framework-mongoengine"
 optional = false
 python-versions = "*"
-version = "3.4.1"
 
 [[package]]
+name = "django-rest-framework-mongoengine"
+version = "3.4.1"
+description = "MongoEngine support for Django Rest Framework."
 category = "main"
-description = "Web APIs for Django, made easy."
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "djangorestframework"
+version = "3.11.1"
+description = "Web APIs for Django, made easy."
+category = "main"
 optional = false
 python-versions = ">=3.5"
-version = "3.11.1"
 
 [package.dependencies]
 django = ">=1.11"
 
 [[package]]
-category = "main"
-description = "A minimal JSON Web Token authentication plugin for Django REST Framework"
 name = "djangorestframework-simplejwt"
+version = "4.4.0"
+description = "A minimal JSON Web Token authentication plugin for Django REST Framework"
+category = "main"
 optional = false
 python-versions = ">=3.6,<3.9"
-version = "4.4.0"
 
 [package.dependencies]
 django = "*"
@@ -90,46 +78,38 @@ djangorestframework = "*"
 pyjwt = "*"
 
 [package.extras]
-dev = ["bumpversion (>=0.5.3,<1)", "pytest-watch", "wheel", "twine", "ipython", "cryptography", "pytest-cov", "pytest-django", "pytest-xdist", "pytest", "tox", "flake8", "pep8", "isort", "Sphinx (>=1.6.5,<2)", "sphinx-rtd-theme (>=0.1.9)", "python-jose (3.0.0)"]
+dev = ["bumpversion (>=0.5.3,<1)", "pytest-watch", "wheel", "twine", "ipython", "cryptography", "pytest-cov", "pytest-django", "pytest-xdist", "pytest", "tox", "flake8", "pep8", "isort", "Sphinx (>=1.6.5,<2)", "sphinx-rtd-theme (>=0.1.9)", "python-jose (==3.0.0)"]
 doc = ["Sphinx (>=1.6.5,<2)", "sphinx-rtd-theme (>=0.1.9)"]
 lint = ["flake8", "pep8", "isort"]
-python-jose = ["python-jose (3.0.0)"]
+python-jose = ["python-jose (==3.0.0)"]
 test = ["cryptography", "pytest-cov", "pytest-django", "pytest-xdist", "pytest", "tox"]
 
 [[package]]
-category = "main"
-description = "MongoEngine is a Python Object-Document Mapper for working with MongoDB."
 name = "mongoengine"
+version = "0.20.0"
+description = "MongoEngine is a Python Object-Document Mapper for working with MongoDB."
+category = "main"
 optional = false
 python-versions = ">=3.5"
-version = "0.20.0"
 
 [package.dependencies]
 pymongo = ">=3.4,<4.0"
 
 [[package]]
-category = "main"
-description = "psycopg2 - Python-PostgreSQL Database Adapter"
 name = "psycopg2-binary"
+version = "2.8.6"
+description = "psycopg2 - Python-PostgreSQL Database Adapter"
+category = "main"
 optional = false
 python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
-version = "2.8.6"
 
 [[package]]
-category = "dev"
-description = "Python style guide checker"
-name = "pycodestyle"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-version = "2.6.0"
-
-[[package]]
-category = "main"
-description = "JSON Web Token implementation in Python"
 name = "pyjwt"
+version = "1.7.1"
+description = "JSON Web Token implementation in Python"
+category = "main"
 optional = false
 python-versions = "*"
-version = "1.7.1"
 
 [package.extras]
 crypto = ["cryptography (>=1.4)"]
@@ -137,12 +117,12 @@ flake8 = ["flake8", "flake8-import-order", "pep8-naming"]
 test = ["pytest (>=4.0.1,<5.0.0)", "pytest-cov (>=2.6.0,<3.0.0)", "pytest-runner (>=4.2,<5.0.0)"]
 
 [[package]]
-category = "main"
-description = "Python driver for MongoDB <http://www.mongodb.org>"
 name = "pymongo"
+version = "3.11.0"
+description = "Python driver for MongoDB <http://www.mongodb.org>"
+category = "main"
 optional = false
 python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
-version = "3.11.0"
 
 [package.extras]
 aws = ["pymongo-auth-aws (<2.0.0)"]
@@ -155,40 +135,30 @@ tls = ["ipaddress"]
 zstd = ["zstandard"]
 
 [[package]]
-category = "main"
-description = "World timezone definitions, modern and historical"
 name = "pytz"
+version = "2020.1"
+description = "World timezone definitions, modern and historical"
+category = "main"
 optional = false
 python-versions = "*"
-version = "2020.1"
 
 [[package]]
-category = "main"
-description = "Non-validating SQL parser"
 name = "sqlparse"
+version = "0.3.1"
+description = "Non-validating SQL parser"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-version = "0.3.1"
-
-[[package]]
-category = "dev"
-description = "Python Library for Tom's Obvious, Minimal Language"
-name = "toml"
-optional = false
-python-versions = "*"
-version = "0.10.1"
 
 [metadata]
-content-hash = "a36195756ad715bb6a09f0fc9f3294905854872cb8c2677b6e291b6d07ff514c"
+lock-version = "1.1"
 python-versions = ">=3.6,<3.9"
+content-hash = "29e4187146607edb0ae34b7a46a9e58664adf47e87402fcb631acb8e0977eb4a"
 
 [metadata.files]
 asgiref = [
     {file = "asgiref-3.2.10-py3-none-any.whl", hash = "sha256:9fc6fb5d39b8af147ba40765234fa822b39818b12cc80b35ad9b0cef3a476aed"},
     {file = "asgiref-3.2.10.tar.gz", hash = "sha256:7e51911ee147dd685c3c8b805c0ad0cb58d360987b56953878f8c06d2d1c6f1a"},
-]
-autopep8 = [
-    {file = "autopep8-1.5.4.tar.gz", hash = "sha256:d21d3901cb0da6ebd1e83fc9b0dfbde8b46afc2ede4fe32fbda0c7c6118ca094"},
 ]
 django = [
     {file = "Django-3.1.1-py3-none-any.whl", hash = "sha256:b5fbb818e751f660fa2d576d9f40c34a4c615c8b48dd383f5216e609f383371f"},
@@ -248,12 +218,9 @@ psycopg2-binary = [
     {file = "psycopg2_binary-2.8.6-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:2dac98e85565d5688e8ab7bdea5446674a83a3945a8f416ad0110018d1501b94"},
     {file = "psycopg2_binary-2.8.6-cp38-cp38-win32.whl", hash = "sha256:bd1be66dde2b82f80afb9459fc618216753f67109b859a361cf7def5c7968729"},
     {file = "psycopg2_binary-2.8.6-cp38-cp38-win_amd64.whl", hash = "sha256:8cd0fb36c7412996859cb4606a35969dd01f4ea34d9812a141cd920c3b18be77"},
+    {file = "psycopg2_binary-2.8.6-cp39-cp39-macosx_10_9_x86_64.macosx_10_9_intel.macosx_10_10_intel.macosx_10_10_x86_64.whl", hash = "sha256:89705f45ce07b2dfa806ee84439ec67c5d9a0ef20154e0e475e2b2ed392a5b83"},
     {file = "psycopg2_binary-2.8.6-cp39-cp39-manylinux1_i686.whl", hash = "sha256:42ec1035841b389e8cc3692277a0bd81cdfe0b65d575a2c8862cec7a80e62e52"},
     {file = "psycopg2_binary-2.8.6-cp39-cp39-manylinux1_x86_64.whl", hash = "sha256:7312e931b90fe14f925729cde58022f5d034241918a5c4f9797cac62f6b3a9dd"},
-]
-pycodestyle = [
-    {file = "pycodestyle-2.6.0-py2.py3-none-any.whl", hash = "sha256:2295e7b2f6b5bd100585ebcb1f616591b652db8a741695b3d8f5d28bdc934367"},
-    {file = "pycodestyle-2.6.0.tar.gz", hash = "sha256:c58a7d2815e0e8d7972bf1803331fb0152f867bd89adf8a01dfd55085434192e"},
 ]
 pyjwt = [
     {file = "PyJWT-1.7.1-py2.py3-none-any.whl", hash = "sha256:5c6eca3c2940464d106b99ba83b00c6add741c9becaec087fb7ccdefea71350e"},
@@ -322,8 +289,4 @@ pytz = [
 sqlparse = [
     {file = "sqlparse-0.3.1-py2.py3-none-any.whl", hash = "sha256:022fb9c87b524d1f7862b3037e541f68597a730a8843245c349fc93e1643dc4e"},
     {file = "sqlparse-0.3.1.tar.gz", hash = "sha256:e162203737712307dfe78860cc56c8da8a852ab2ee33750e33aeadf38d12c548"},
-]
-toml = [
-    {file = "toml-0.10.1-py2.py3-none-any.whl", hash = "sha256:bda89d5935c2eac546d648028b9901107a595863cb36bae0c73ac804a9b4ce88"},
-    {file = "toml-0.10.1.tar.gz", hash = "sha256:926b612be1e5ce0634a2ca03470f95169cf16f939018233a670519cb4ac58b0f"},
 ]
